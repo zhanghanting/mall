@@ -1,45 +1,44 @@
 package com.springboot.mall.controller;
 
 import com.springboot.mall.domain.vo.ResponseVo;
-import com.springboot.mall.utils.JsonUtil;
+import com.springboot.mall.utils.JsonBean;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
 @Controller
 public class FirstController
 {
     @ResponseBody
     @RequestMapping("/auth/login")
-    public JsonUtil login()
+    public JsonBean login()
     {
-        JsonUtil jsonUtil = new JsonUtil();
-        jsonUtil.setErrno(0);
-        jsonUtil.setData(null);
-        jsonUtil.setErrmsg("成功");
-        return jsonUtil;
+        JsonBean jsonBean = new JsonBean();
+        jsonBean.setErrno(0);
+        jsonBean.setData(null);
+        jsonBean.setErrmsg("成功");
+        return jsonBean;
     }
     @ResponseBody
     @RequestMapping("/auth/info")
-    public JsonUtil info()
+    public JsonBean info()
     {
-        JsonUtil jsonUtil = new JsonUtil();
-        jsonUtil.setErrno(0);
-        jsonUtil.setErrmsg("成功");
+        JsonBean jsonBean = new JsonBean();
+        jsonBean.setErrno(0);
+        jsonBean.setErrmsg("成功");
         ResponseVo responseVo = new ResponseVo();
         responseVo.setRoles(new String[]{"超级管理员"});
         responseVo.setName("admin123");
         responseVo.setPerms(new String[]{"*"});
         responseVo.setAvatar("https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif");
-        jsonUtil.setData(responseVo);
-        return jsonUtil;
+        jsonBean.setData(responseVo);
+        return jsonBean;
     }
   /*  @ResponseBody
     @RequestMapping("/dashboard")
-    public JsonUtil dashboard()
+    public JsonBean dashboard()
     {
-        JsonUtil jsonUtil = new JsonUtil();
+        JsonBean jsonUtil = new JsonBean();
         jsonUtil.setErrno(0);
         jsonUtil.setErrmsg("成功");
 
