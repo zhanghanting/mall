@@ -7,15 +7,13 @@ import com.springboot.mall.utils.JsonBean;
 import com.springboot.mall.utils.PageUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.List;
-
 public class CategoryServiceImpl implements CategoryService {
 
     @Autowired
     CategoryMapper categoryMapper;
     @Override
     public JsonBean viewAllCategory(PageUtils pageUtils) {
-
-         List<Category> categoryMapper.viewAllCategory()
+         /*List<Category> categoryMapper.viewAllCategory()*/
+        return null;
     }
 }
