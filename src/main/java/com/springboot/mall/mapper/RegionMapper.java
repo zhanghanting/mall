@@ -21,9 +21,9 @@ public interface RegionMapper {
 
     Region selectByPrimaryKey(Integer id);
 
-    int updateByExampleSelective(@Param("record") Region record,@Param("example") RegionExample example);
+    int updateByExampleSelective(@Param("record") Region record, @Param("example") RegionExample example);
 
-    int updateByExample(@Param("record") Region record,@Param("example") RegionExample example);
+    int updateByExample(@Param("record") Region record, @Param("example") RegionExample example);
 
     int updateByPrimaryKeySelective(Region record);
 

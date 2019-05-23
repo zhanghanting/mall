@@ -21,9 +21,9 @@ public interface UserFormidMapper {
 
     UserFormid selectByPrimaryKey(Integer id);
 
-    int updateByExampleSelective(@Param("record") UserFormid record,@Param("example") UserFormidExample example);
+    int updateByExampleSelective(@Param("record") UserFormid record, @Param("example") UserFormidExample example);
 
-    int updateByExample(@Param("record") UserFormid record,@Param("example") UserFormidExample example);
+    int updateByExample(@Param("record") UserFormid record, @Param("example") UserFormidExample example);
 
     int updateByPrimaryKeySelective(UserFormid record);
 

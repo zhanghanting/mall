@@ -21,9 +21,9 @@ public interface CartMapper {
 
     Cart selectByPrimaryKey(Integer id);
 
-    int updateByExampleSelective(@Param("record") Cart record,@Param("example") CartExample example);
+    int updateByExampleSelective(@Param("record") Cart record, @Param("example") CartExample example);
 
-    int updateByExample(@Param("record") Cart record,@Param("example") CartExample example);
+    int updateByExample(@Param("record") Cart record, @Param("example") CartExample example);
 
     int updateByPrimaryKeySelective(Cart record);
 

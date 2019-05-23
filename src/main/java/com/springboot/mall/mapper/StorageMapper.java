@@ -21,9 +21,9 @@ public interface StorageMapper {
 
     Storage selectByPrimaryKey(Integer id);
 
-    int updateByExampleSelective(@Param("record") Storage record,@Param("example") StorageExample example);
+    int updateByExampleSelective(@Param("record") Storage record, @Param("example") StorageExample example);
 
-    int updateByExample(@Param("record") Storage record,@Param("example") StorageExample example);
+    int updateByExample(@Param("record") Storage record, @Param("example") StorageExample example);
 
     int updateByPrimaryKeySelective(Storage record);
 

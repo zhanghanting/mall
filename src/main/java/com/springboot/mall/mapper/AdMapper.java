@@ -21,9 +21,9 @@ public interface AdMapper {
 
     Ad selectByPrimaryKey(Integer id);
 
-    int updateByExampleSelective(@Param("record") Ad record,@Param("example") AdExample example);
+    int updateByExampleSelective(@Param("record") Ad record, @Param("example") AdExample example);
 
-    int updateByExample(@Param("record") Ad record,@Param("example") AdExample example);
+    int updateByExample(@Param("record") Ad record, @Param("example") AdExample example);
 
     int updateByPrimaryKeySelective(Ad record);
 
