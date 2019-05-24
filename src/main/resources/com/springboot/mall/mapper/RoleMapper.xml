@@ -10,6 +10,36 @@
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="deleted" jdbcType="BIT" property="deleted" />
   </resultMap>
+  <resultMap id="roleMap" type="com.springboot.mall.domain.Role">
+      <result column="id" property="id"/>
+      <result column="roleName" property="name"/>
+      <result column="roleDesc" property="desc"/>
+      <result column="enabled" property="enabled"/>
+      <result column="add_time" property="addTime"/>
+      <result column="update_time" property="updateTime"/>
+      <result column="deleted" property="deleted"/>
+  </resultMap>
+  <!--条件查询-->
+  <select id="getRoles" resultMap="roleMap">
+      select id,
+             cskaoyan_mall_role.name roleName,
+             cskaoyan_mall_role.desc roleDesc,
+             enabled,
+             add_time,
+             update_time,
+             deleted
+      from cskaoyan_mall_role
+      <if test="name!=null">
+        where `name` like concat('%',#{name},'%')
+      </if>
+      order by ${sort} ${order}
+
+  </select>
+  <!--添加-->
+  <insert id="add">
+    insert into cskaoyan_mall_role(`name`,`desc`,enabled,add_time,update_time,deleted)
+    values (#{role.name},#{role.desc},#{role.enabled},#{role.addTime},#{role.updateTime},#{role.deleted})
+  </insert>
   <sql id="Example_Where_Clause">
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">

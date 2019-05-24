@@ -28,4 +28,8 @@ public interface RoleMapper {
     int updateByPrimaryKeySelective(Role record);
 
     int updateByPrimaryKey(Role record);
+
+    List<Role> getRoles(@Param("sort") String sort,@Param("order") String order,@Param("name") String name);
+
+    int add(@Param("role") Role role);
 }

@@ -28,4 +28,6 @@ public interface LogMapper {
     int updateByPrimaryKeySelective(Log record);
 
     int updateByPrimaryKey(Log record);
+
+    List<Log> getLogs(@Param("sort") String sort,@Param("order") String order,@Param("name") String name);
 }

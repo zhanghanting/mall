@@ -12,6 +12,46 @@
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="deleted" jdbcType="BIT" property="deleted" />
   </resultMap>
+  <resultMap id="storageMap" type="com.springboot.mall.domain.Storage">
+    <result column="id" property="id"/>
+    <result column="sKey" property="key"/>
+    <result column="sName" property="name"/>
+    <result column="type" property="type"/>
+    <result column="size" property="size"/>
+    <result column="url" property="url"/>
+    <result column="add_time" property="addTime"/>
+    <result column="update_time" property="updateTime"/>
+    <result column="deleted" property="deleted"/>
+  </resultMap>
+  <!--条件查看storage-->
+  <select id="getStorage" resultMap="storageMap">
+      select id,
+             cskaoyan_mall_storage.key sKey,
+             cskaoyan_mall_storage.name sName,
+             cskaoyan_mall_storage.type,
+             cskaoyan_mall_storage.size,
+              url,
+              add_time,
+              update_time,
+              deleted
+      from cskaoyan_mall_storage
+      <where>
+         1=1
+         <if test="key!=null">
+            and `key` like concat('%',#{key},'%')
+         </if>
+         <if test="name!=null">
+            and `name` like concat('%',#{name},'%')
+         </if>
+      </where>
+      order by #{sort} #{order}
+  </select>
+  <!--update-->
+  <update id="update">
+     update cskaoyan_mall_storage
+     set `name` = #{storage.name}
+     where id = #{storage.id}
+  </update>
   <sql id="Example_Where_Clause">
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">

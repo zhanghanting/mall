@@ -14,6 +14,39 @@
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="deleted" jdbcType="BIT" property="deleted" />
   </resultMap>
+  <!--条件查询-->
+  <resultMap id="logsMap" type="com.springboot.mall.domain.Log">
+      <result column="id" property="id"/>
+      <result column="logAdmin" property="admin"/>
+      <result column="ip" property="ip"/>
+      <result column="logType" property="type"/>
+      <result column="logAction" property="action"/>
+      <result column="status" property="status"/>
+      <result column="result" property="result"/>
+      <result column="comment" property="comment"/>
+      <result column="add_time" property="addTime"/>
+      <result column="update_time" property="updateTime"/>
+      <result column="deleted" property="deleted"/>
+  </resultMap>
+  <select id="getLogs" resultMap="logsMap">
+     select id,
+            cskaoyan_mall_log.admin logAdmin,
+            ip,
+            cskaoyan_mall_log.type logType,
+            cskaoyan_mall_log.action logAction,
+            status,
+            result,
+            comment,
+            add_time,
+            update_time,
+            deleted
+            from cskaoyan_mall_log
+            <if test="name!=null">
+                  where `admin` like CONCAT('%',#{name},'%')
+            </if>
+            order by ${sort} ${order}
+
+  </select>
   <sql id="Example_Where_Clause">
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">

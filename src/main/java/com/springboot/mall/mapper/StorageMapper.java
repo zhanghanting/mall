@@ -28,4 +28,8 @@ public interface StorageMapper {
     int updateByPrimaryKeySelective(Storage record);
 
     int updateByPrimaryKey(Storage record);
+
+    List<Storage> getStorage(String sort,String order,String key,String name);
+
+    int update(@Param("storage") Storage storage);
 }
