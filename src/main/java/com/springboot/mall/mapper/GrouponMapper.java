@@ -21,9 +21,9 @@ public interface GrouponMapper {
 
     Groupon selectByPrimaryKey(Integer id);
 
-    int updateByExampleSelective(@Param("record") Groupon record,@Param("example") GrouponExample example);
+    int updateByExampleSelective(@Param("record") Groupon record, @Param("example") GrouponExample example);
 
-    int updateByExample(@Param("record") Groupon record,@Param("example") GrouponExample example);
+    int updateByExample(@Param("record") Groupon record, @Param("example") GrouponExample example);
 
     int updateByPrimaryKeySelective(Groupon record);
 

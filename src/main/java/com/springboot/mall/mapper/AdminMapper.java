@@ -21,9 +21,9 @@ public interface AdminMapper {
 
     Admin selectByPrimaryKey(Integer id);
 
-    int updateByExampleSelective(@Param("record") Admin record,@Param("example") AdminExample example);
+    int updateByExampleSelective(@Param("record") Admin record, @Param("example") AdminExample example);
 
-    int updateByExample(@Param("record") Admin record,@Param("example") AdminExample example);
+    int updateByExample(@Param("record") Admin record, @Param("example") AdminExample example);
 
     int updateByPrimaryKeySelective(Admin record);
 

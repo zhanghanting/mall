@@ -1,6 +1,6 @@
 package com.springboot.mall.utils;
 
-public class JsonBean
+public class JsonUtil
 {
     //响应数据
     private Object data;
@@ -9,11 +9,11 @@ public class JsonBean
     //响应消息
     private String errmsg;
 
-    public JsonBean()
+    public JsonUtil()
     {
     }
 
-    public JsonBean(Object data, Integer errno, String errmsg)
+    public JsonUtil(Object data, Integer errno, String errmsg)
     {
         this.data = data;
         this.errno = errno;

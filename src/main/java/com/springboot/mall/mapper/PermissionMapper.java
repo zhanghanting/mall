@@ -21,9 +21,9 @@ public interface PermissionMapper {
 
     Permission selectByPrimaryKey(Integer id);
 
-    int updateByExampleSelective(@Param("record") Permission record,@Param("example") PermissionExample example);
+    int updateByExampleSelective(@Param("record") Permission record, @Param("example") PermissionExample example);
 
-    int updateByExample(@Param("record") Permission record,@Param("example") PermissionExample example);
+    int updateByExample(@Param("record") Permission record, @Param("example") PermissionExample example);
 
     int updateByPrimaryKeySelective(Permission record);
 

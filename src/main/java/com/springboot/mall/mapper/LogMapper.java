@@ -21,9 +21,9 @@ public interface LogMapper {
 
     Log selectByPrimaryKey(Integer id);
 
-    int updateByExampleSelective(@Param("record") Log record,@Param("example") LogExample example);
+    int updateByExampleSelective(@Param("record") Log record, @Param("example") LogExample example);
 
-    int updateByExample(@Param("record") Log record,@Param("example") LogExample example);
+    int updateByExample(@Param("record") Log record, @Param("example") LogExample example);
 
     int updateByPrimaryKeySelective(Log record);
 

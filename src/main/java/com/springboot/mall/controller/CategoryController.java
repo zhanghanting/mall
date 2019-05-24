@@ -2,7 +2,7 @@ package com.springboot.mall.controller;
 
 import com.springboot.mall.domain.Category;
 import com.springboot.mall.service.CategoryService;
-import com.springboot.mall.utils.JsonBean;
+import com.springboot.mall.utils.JsonUtil;
 import com.springboot.mall.utils.PageUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,7 +16,7 @@ public class CategoryController {
     CategoryService categoryService;
 
     @RequestMapping("/list")
-    public JsonBean list(PageUtils pageUtils){
+    public JsonUtil list(PageUtils pageUtils){
         return categoryService.viewAllCategory(pageUtils);
     }
 }

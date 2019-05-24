@@ -3,7 +3,7 @@ package com.springboot.mall.controller;
 
 import com.springboot.mall.domain.Storage;
 import com.springboot.mall.service.StorageService;
-import com.springboot.mall.utils.JsonBean;
+import com.springboot.mall.utils.JsonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,7 +25,7 @@ public class StorageController {
     StorageService storageService;
 
     @RequestMapping("/create")
-    public JsonBean create(MultipartFile file, HttpServletRequest request) throws IOException {
+    public JsonUtil create(MultipartFile file, HttpServletRequest request) throws IOException {
         return storageService.insertSrorage(file,request);
 
 
@@ -43,7 +43,7 @@ public class StorageController {
         System.out.println(file.getName());
         storage.setName(file.getOriginalFilename());
         storage.setUrl(requestURI);
-        JsonBean jsonBean = storageService.insertSrorage(storage);
+        JsonUtil JsonUtil = storageService.insertSrorage(storage);
         file.transferTo(filePath);*/
 
 

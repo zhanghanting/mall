@@ -3,7 +3,7 @@ package com.springboot.mall.service.impl;
 import com.springboot.mall.domain.vo.RegionVo;
 import com.springboot.mall.mapper.RegionVoMapper;
 import com.springboot.mall.service.RegionService;
-import com.springboot.mall.utils.JsonBean;
+import com.springboot.mall.utils.JsonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +16,7 @@ public class RegionServiceImpl implements RegionService {
     RegionVoMapper regionVoMapper;
 
     @Override
-    public JsonBean viewAllRegoin() {
+    public JsonUtil viewAllRegoin() {
 
         List<RegionVo> regionVosFirst = regionVoMapper.viewAllRegionVos(10, 100);
         for (RegionVo regionVo : regionVosFirst) {
@@ -26,6 +26,6 @@ public class RegionServiceImpl implements RegionService {
                 child.setChildren(regionVoMapper.viewAllRegionVos(child.getCode()*100,child.getCode()*100+99));
             }
         }
-        return new JsonBean(regionVosFirst,0,"成功");
+        return new JsonUtil(regionVosFirst,0,"成功");
     }
 }
