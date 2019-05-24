@@ -2,21 +2,24 @@ package com.springboot.mall.mapper;
 
 import com.springboot.mall.domain.Brand;
 import com.springboot.mall.domain.BrandExample;
+import com.springboot.mall.utils.PageUtils;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 public interface BrandMapper {
-    long countByExample(BrandExample example);
 
-    int deleteByExample(BrandExample example);
+    List<Brand> viewAllBrand(@Param("pageUtils") PageUtils pageUtils,@Param("brand") Brand brand);
 
-    int deleteByPrimaryKey(Integer id);
+    int updateBrandById(@Param("brand") Brand brand);
 
-    int insert(Brand record);
+    int deleteBrandById(@Param("brand") Brand brands);
 
-    int insertSelective(Brand record);
+    int insertBrand(@Param("brand") Brand brand);
 
+<<<<<<< HEAD
     List<Brand> selectByExample(BrandExample example);
 
     Brand selectByPrimaryKey(Integer id);
@@ -28,4 +31,7 @@ public interface BrandMapper {
     int updateByPrimaryKeySelective(Brand record);
 
     int updateByPrimaryKey(Brand record);
+=======
+    Brand selectBrandByUrl(@Param("picUrl") String picUrl);
+>>>>>>> 137c57c3173242ce170d83b2eed992c1acd9ee70
 }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.springboot.mall.mapper.BrandMapper">
+<<<<<<< HEAD
   <resultMap id="BaseResultMap" type="com.springboot.mall.domain.Brand">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
@@ -272,4 +273,71 @@
       deleted = #{deleted,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}
   </update>
+=======
+  <resultMap id="BrandMap" type="com.springboot.mall.domain.Brand">
+    <id column="id"  property="id" />
+    <result column="name" property="name" />
+    <result column="desc"  property="desc" />
+    <result column="pic_url" property="picUrl" />
+    <result column="sort_order"  property="sortOrder" />
+    <result column="floor_price"  property="floorPrice" />
+    <result column="add_time"  property="addTime" />
+    <result column="update_time" property="updateTime" />
+    <result column="deleted" property="deleted" />
+  </resultMap>
+
+  <sql id="BrandMapList">
+    id, name, `desc`, pic_url, sort_order, floor_price, add_time, update_time, deleted
+  </sql>
+  
+  <insert id="insertBrand">
+    <!--<selectKey keyColumn="id" keyProperty="id" order="AFTER"/>-->
+    insert into cskaoyan_mall_brand (<include refid="BrandMapList"/> ) value
+    (null,#{brand.name},#{brand.desc},#{brand.picUrl},null,#{brand.floorPrice},now(),now(),0)
+  </insert>
+
+  <select id="viewAllBrand" resultMap="BrandMap">
+    select <include refid="BrandMapList"/> from cskaoyan_mall_brand
+    <where>
+    <if test="brand.id != null">
+      id = #{brand.id}
+    </if>
+    <if test="brand.name != null">
+    and name like #{brand.name}
+    </if>
+
+     and deleted = 0
+    </where>
+    order by #{pageUtils.sort} #{pageUtils.order}
+  </select>
+  <select id="selectBrandByUrl" resultMap="BrandMap">
+  select <include refid="BrandMapList"/> from cskaoyan_mall_brand
+  where pic_url = #{picUrl}
+  </select>
+
+  <update id="updateBrandById" >
+    update  cskaoyan_mall_brand
+    <set>
+    <if test="brand.name != null">
+       name = #{brand.name} ,
+    </if>
+     <if test="brand.desc != null">
+       `desc` = #{brand.desc},
+    </if>
+    <if test="brand.picUrl != null">
+       pic_url = #{brand.picUrl},
+    </if>
+    <if test="brand.floorPrice != null">
+      floor_price = #{brand.floorPrice},
+    </if>
+    update_time = now()
+    </set>
+    where id = #{brand.id}
+  </update>
+
+  <update id="deleteBrandById">
+    update  cskaoyan_mall_brand set deleted = 1 where id = #{brand.id}
+  </update>
+
+>>>>>>> 137c57c3173242ce170d83b2eed992c1acd9ee70
 </mapper>
