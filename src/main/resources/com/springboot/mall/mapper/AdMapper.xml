@@ -17,9 +17,12 @@
   </resultMap>
 
 
-  <select id="selectAllAd" resultMap="BaseResultMap">
-    select * from cskaoyan_mall_ad
-  </select>
+  <!--扩展的sql-->
+
+  <!--删除-->
+  <delete id="deleteById">
+    DELETE FROM cskaoyan_mall_ad WHERE id = #{id}
+  </delete>
 
   <sql id="Example_Where_Clause">
     <where>

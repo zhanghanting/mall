@@ -2,7 +2,6 @@ package com.springboot.mall.controller;
 
 import com.springboot.mall.domain.vo.ResponseVo;
 import com.springboot.mall.utils.JsonUtil;
-import com.springboot.mall.utils.JsonUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;

@@ -29,6 +29,6 @@ public interface AdMapper {
 
     int updateByPrimaryKey(Ad record);
 
-    //新增方法
-    List<Ad> selectAllAd();
+    //扩展
+    void deleteById(Integer id);
 }
