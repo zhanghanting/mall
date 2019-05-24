@@ -1,12 +1,11 @@
 package com.springboot.mall.service.impl;
 
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
 import com.springboot.mall.domain.Category;
+import com.springboot.mall.domain.vo.CategoryVo;
+import com.springboot.mall.domain.vo.LevelOne;
 import com.springboot.mall.mapper.CategoryMapper;
 import com.springboot.mall.service.CategoryService;
 import com.springboot.mall.utils.JsonUtil;
-import com.springboot.mall.utils.MallPageHelper;
 import com.springboot.mall.utils.PageUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,13 +20,31 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public JsonUtil viewAllCategory(PageUtils pageUtils) {
-        /*PageHelper.startPage(pageUtils.getPage(),pageUtils.getLimit());
-        List<Category> categories = categoryMapper.viewAllCategory();
-        PageInfo pageInfo = new PageInfo(categories);
-        MallPageHelper mallPageHelper = new MallPageHelper();
-        mallPageHelper.setItems(categories);
-        mallPageHelper.setTotal(pageInfo.getTotal());*/
-        List<Category> categories = categoryMapper.viewAllCategory();
-        return new JsonUtil(categories,0,"OK");
+        List<CategoryVo> categories = categoryMapper.viewAllCategories();
+        return new JsonUtil(categories,0,"成功");
+    }
+
+    @Override
+    public JsonUtil insertCategory(Category category) {
+        categoryMapper.insertCategory(category);
+        return new JsonUtil(category,0,"OK");
+    }
+
+    @Override
+    public JsonUtil viewAllLevelOne() {
+        List<LevelOne> levelOnes = categoryMapper.viewAllLevelOne();
+        return new JsonUtil(levelOnes,0,"OK");
+    }
+
+    @Override
+    public JsonUtil updateCategory(Category category) {
+        categoryMapper.updateCategory(category);
+        return new JsonUtil(category,0,"成功");
+    }
+
+    @Override
+    public JsonUtil deleteCategoryById(Category category) {
+        categoryMapper.deleteCategoryById(category);
+        return new JsonUtil(null,0,"成功");
     }
 }

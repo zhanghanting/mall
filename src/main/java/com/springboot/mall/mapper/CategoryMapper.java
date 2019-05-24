@@ -2,32 +2,23 @@ package com.springboot.mall.mapper;
 
 import com.springboot.mall.domain.Category;
 import com.springboot.mall.domain.CategoryExample;
+import com.springboot.mall.domain.vo.CategoryVo;
+import com.springboot.mall.domain.vo.LevelOne;
+import com.springboot.mall.utils.JsonUtil;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
 public interface CategoryMapper {
-    List<Category> viewAllCategory();
+    List<CategoryVo> viewAllCategories();
 
-    long countByExample(CategoryExample example);
+    int insertCategory(@Param("category") Category category);
 
-    int deleteByExample(CategoryExample example);
+    List<LevelOne> viewAllLevelOne();
 
-    int deleteByPrimaryKey(Integer id);
 
-    int insert(Category record);
+    int updateCategory(@Param("category") Category category);
 
-    int insertSelective(Category record);
+    int deleteCategoryById(@Param("category") Category category);
 
-    List<Category> selectByExample(CategoryExample example);
-
-    Category selectByPrimaryKey(Integer id);
-
-    int updateByExampleSelective(@Param("record") Category record, @Param("example") CategoryExample example);
-
-    int updateByExample(@Param("record") Category record, @Param("example") CategoryExample example);
-
-    int updateByPrimaryKeySelective(Category record);
-
-    int updateByPrimaryKey(Category record);
 }
