@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
         <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.springboot.mall.mapper.CategoryMapper">
-    <resultMap id="CategoryMap" type="com.springboot.mall.domain.Category">
+    <resultMap id="CategoryMapL1" type="com.springboot.mall.domain.vo.CategoryVo" extends="CategoryMap">
+        <collection property="childen" column="id" select="com.springboot.mall.mapper.CategoryMapper.viewCategoriesByPid" />
+    </resultMap>
+    <resultMap id="CategoryMap" type="com.springboot.mall.domain.vo.CategoryLevel2">
         <id column="id"  property="id" />
         <result column="name"  property="name" />
         <result column="keywords"  property="keywords" />
@@ -17,10 +20,59 @@
     </resultMap>
 
 <sql id="CategoryList">
-    id, name, keywords, `desc`, pid, icon_url, pic_url, `level`, sort_order, add_time, update_time,
+    id, `name`, keywords, `desc`, pid, icon_url, pic_url, `level`, sort_order, add_time, update_time,
     deleted
 </sql>
-    <select id="viewAllCategory" resultMap="CategoryMap">
-        select <include refid="CategoryList"/> from cskaoyan_mall_category where deleted = 0;
+    <select id="viewAllCategories" resultMap="CategoryMapL1">
+        select id, `name`, keywords, `desc`,  icon_url, pic_url, `level` from cskaoyan_mall_category where `level`= 'L1' and deleted = 0 ;
     </select>
+
+
+    <select id="viewCategoriesByPid" resultMap="CategoryMap">
+        select id, `name`, keywords, `desc`,  icon_url, pic_url, `level` from cskaoyan_mall_category where pid = #{pid} and deleted = 0 ;
+    </select>
+
+
+    <select id="viewAllLevelOne" resultType="com.springboot.mall.domain.vo.LevelOne">
+        select id as `value` ,`name` as label   from cskaoyan_mall_category where `level` = 'L1' and deleted = 0</select>
+    <insert id="insertCategory">
+        <selectKey keyProperty="id" order="AFTER"  resultType="java.lang.Integer">
+
+            SELECT LAST_INSERT_ID() as id
+        </selectKey>
+        insert into cskaoyan_mall_category
+        ( `name`, keywords, `desc`, pid, icon_url, pic_url, `level`, add_time, update_time)
+        value (#{category.name},#{category.keywords},#{category.desc},#{category.pid},#{category.iconUrl},#{category.picUrl},#{category.level},now(),now())
+    </insert>
+
+    <update id="updateCategory">
+        update cskaoyan_mall_category
+        <set>
+            <if test="category.name != null">
+                `name` = #{category.name} ,
+            </if>
+            <if test="category.keywords != null">
+                keywords = #{category.keywords} ,
+            </if>
+            <if test="category.desc != null">
+                `desc` = #{category.desc} ,
+            </if>
+            <if test="category.pid != null">
+                pid = #{category.pid} ,
+            </if>
+            <if test="category.iconUrl != null">
+                icon_url = #{category.iconUrl} ,
+            </if>
+            <if test="category.picUrl != null">
+                pic_url = #{category.picUrl} ,
+            </if>
+            <if test="category.level != null">
+                `level` = #{category.level}
+            </if>
+            where id = #{category.id} and deleted = 0
+        </set>
+    </update>
+    <delete id="deleteCategoryById">
+         update cskaoyan_mall_category set deleted = 1 where id = #{category.id}
+    </delete>
 </mapper>
