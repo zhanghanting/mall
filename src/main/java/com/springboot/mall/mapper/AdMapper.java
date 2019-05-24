@@ -28,4 +28,7 @@ public interface AdMapper {
     int updateByPrimaryKeySelective(Ad record);
 
     int updateByPrimaryKey(Ad record);
+
+    //新增方法
+    List<Ad> selectAllAd();
 }
