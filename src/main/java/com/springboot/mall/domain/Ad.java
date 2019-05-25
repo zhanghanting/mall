@@ -1,5 +1,7 @@
 package com.springboot.mall.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class Ad {
@@ -75,18 +77,22 @@ public class Ad {
         this.content = content == null ? null : content.trim();
     }
 
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
     public Date getStartTime() {
         return startTime;
     }
 
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
     public void setStartTime(Date startTime) {
         this.startTime = startTime;
     }
 
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
     public Date getEndTime() {
         return endTime;
     }
 
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
     public void setEndTime(Date endTime) {
         this.endTime = endTime;
     }
@@ -99,18 +105,22 @@ public class Ad {
         this.enabled = enabled;
     }
 
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
     public Date getAddTime() {
         return addTime;
     }
 
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
     public void setAddTime(Date addTime) {
         this.addTime = addTime;
     }
 
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
     public Date getUpdateTime() {
         return updateTime;
     }
 
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
