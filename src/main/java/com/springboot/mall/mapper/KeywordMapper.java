@@ -28,4 +28,12 @@ public interface KeywordMapper {
     int updateByPrimaryKeySelective(Keyword record);
 
     int updateByPrimaryKey(Keyword record);
+
+    List<Keyword> viewAllKeywords(@Param("sort") String sort,@Param("order") String order,@Param("keyword")  Keyword keyword);
+
+    void insertKeyword(@Param("keyword") Keyword keyword);
+
+    void deleteKeywordById(@Param("keyword")Keyword keyword);
+
+    void updateKeywordById(@Param("keyword")Keyword keyword);
 }

@@ -1,16 +1,14 @@
-package com.springboot.mall.controller;
+package com.springboot.mall.controller.mallsmanagement;
 
 import com.springboot.mall.domain.Brand;
-import com.springboot.mall.service.BrandService;
-import com.springboot.mall.service.RegionService;
+import com.springboot.mall.service.mallsmanagement.BrandService;
+import com.springboot.mall.service.mallsmanagement.RegionService;
 import com.springboot.mall.utils.JsonUtil;
 import com.springboot.mall.utils.PageUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 
 @RestController

@@ -17,6 +17,11 @@
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="deleted" jdbcType="BIT" property="deleted" />
   </resultMap>
+
+  <select id="viewOrderByOrderId" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List"/> from  cskaoyan_mall_order_goods
+    where order_id = #{orderId} and deleted = 0
+  </select>
   <sql id="Example_Where_Clause">
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">
