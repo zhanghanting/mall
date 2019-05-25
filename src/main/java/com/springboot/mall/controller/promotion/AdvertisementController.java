@@ -52,7 +52,7 @@ public class AdvertisementController {
     //添加
     @RequestMapping("create")
     @ResponseBody
-    public Object create(Ad ad){
+    public Object create(@RequestBody Ad ad){
         Object error = validate(ad);
         if (error != null){
             return error;
@@ -63,11 +63,19 @@ public class AdvertisementController {
 
 
     //编辑
-//    @RequestMapping("update")
-//    @ResponseBody
-//    public Object update(@RequestBody Ad ad){
-//
-//    }
+    @RequestMapping("update")
+    @ResponseBody
+    public Object update(@RequestBody Ad ad){
+        Object error = validate(ad);
+        if (error != null) {
+            return error;
+        }
+        if (adService.updateById(ad) == 0) {
+            return ResponseUtil.updatedDataFailed();
+        }
+
+        return ResponseUtil.ok(ad);
+    }
 
 
     //删除
