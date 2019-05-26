@@ -28,4 +28,6 @@ public interface UserMapper {
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
+
+    User viewUserById(@Param("id") Integer id);
 }

@@ -12,6 +12,51 @@
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="deleted" jdbcType="BIT" property="deleted" />
   </resultMap>
+  <select id="viewAllKeywords" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List"/> from cskaoyan_mall_keyword
+    <where>
+    deleted = 0
+      <if test="keyword.keyword != null and keyword.keyword.length gt 0">
+        and keyword like #{keyword.keyword}
+      </if>
+      <if test="keyword.url != null and keyword.url.length gt 0">
+        and url = #{keyword.url}
+      </if>
+    </where>
+    order by #{sort} #{order}
+  </select>
+
+  <insert id="insertKeyword">
+    insert into cskaoyan_mall_keyword (  <include refid="Base_Column_List"/> ) value
+    (null,#{keyword.keyword},#{keyword.url},#{keyword.isHot},#{keyword.isDefault},100,now(),now(),0)
+  </insert>
+
+  <update id="deleteKeywordById">
+    update cskaoyan_mall_keyword set deleted = 0 ,update_time = now() where id = #{keyword.id}
+  </update>
+
+  <update id="updateKeywordById">
+    update cskaoyan_mall_keyword
+    <set>
+    update_time = now() ,
+    <if test="keyword.keyword != null and keyword.keyword.length gt 0">
+      keyword = #{keyword.keyword},
+    </if>
+    <if test="keyword.url != null and keyword.url.length gt 0">
+    url = #{keyword.url},
+    </if>
+    <if test="keyword.isHot != null">
+    is_hot = #{keyword.isHot},
+    </if>
+      <if test="keyword.isDefault != null">
+    is_default = #{keyword.isDefault}
+    </if>
+    </set>
+     where id = #{keyword.id}
+  </update>
+
+
+
   <sql id="Example_Where_Clause">
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">
@@ -25,7 +70,7 @@
                 <when test="criterion.singleValue">
                   and ${criterion.condition} #{criterion.value}
                 </when>
-                <when test="criterion.betweenValue">
+                <when test="criterion.betweenValue">y
                   and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
                 </when>
                 <when test="criterion.listValue">

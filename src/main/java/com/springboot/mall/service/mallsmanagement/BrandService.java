@@ -1,4 +1,4 @@
-package com.springboot.mall.service;
+package com.springboot.mall.service.mallsmanagement;
 
 import com.springboot.mall.domain.Brand;
 import com.springboot.mall.utils.JsonUtil;

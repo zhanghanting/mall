@@ -1,8 +1,8 @@
-package com.springboot.mall.service.impl;
+package com.springboot.mall.service.mallsmanagement.impl;
 
 import com.springboot.mall.domain.vo.RegionVo;
 import com.springboot.mall.mapper.RegionVoMapper;
-import com.springboot.mall.service.RegionService;
+import com.springboot.mall.service.mallsmanagement.RegionService;
 import com.springboot.mall.utils.JsonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
