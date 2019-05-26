@@ -288,4 +288,20 @@
       deleted = #{deleted,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+<!--新增sql语句-->
+  <select id="selectOneByExample" parameterType="com.springboot.mall.domain.GrouponRulesExample" resultMap="BaseResultMap">
+
+    select
+    <include refid="Base_Column_List" />
+    from cskaoyan_mall_groupon_rules
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    limit 1
+  </select>
+
 </mapper>

@@ -17,4 +17,6 @@ public interface AdService  {
     int updateById(Ad ad);
 
     void add(Ad ad);
+
+    Ad findById(Integer id);
 }

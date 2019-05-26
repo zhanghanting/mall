@@ -55,7 +55,25 @@ public class ResponseUtil {
     }
 
 
+    public static Object okList(List list, List pagedList) {
+        Map<String, Object> data = new HashMap<String, Object>();
+        data.put("list", list);
 
+        if (pagedList instanceof Page) {
+            Page page = (Page) pagedList;
+            data.put("total", page.getTotal());
+//            data.put("page", page.getPageNum());
+//            data.put("limit", page.getPageSize());
+//            data.put("pages", page.getPages());
+        }
+        else{
+            data.put("total", pagedList.size());
+//            data.put("page", 1);
+//            data.put("limit", pagedList.size());
+//            data.put("pages", 1);
+        }
+        return ok(data);
+    }
 
 
     public static Object fail(){
@@ -77,7 +95,13 @@ public class ResponseUtil {
         return fail(401, "参数不对");
     }
 
+    public static Object badArgumentValue() {
+        return fail(402, "参数值不对");
+    }
+
     public static Object updatedDataFailed() {
         return fail(505, "更新数据失败");
     }
+
+
 }

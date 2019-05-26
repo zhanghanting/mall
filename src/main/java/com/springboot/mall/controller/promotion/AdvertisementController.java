@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**
@@ -61,6 +62,11 @@ public class AdvertisementController {
         return ResponseUtil.ok(ad);
     }
 
+    @RequestMapping("/read")
+    public Object read(@NotNull Integer id) {
+        Ad ad = adService.findById(id);
+        return ResponseUtil.ok(ad);
+    }
 
     //编辑
     @RequestMapping("update")
@@ -89,10 +95,4 @@ public class AdvertisementController {
         adService.deleteById(id);
         return ResponseUtil.ok();
     }
-
-
-
-
-
-
 }

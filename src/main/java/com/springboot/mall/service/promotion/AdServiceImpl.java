@@ -7,8 +7,6 @@ import com.springboot.mall.mapper.AdMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import javax.annotation.Resource;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -66,7 +64,7 @@ public class AdServiceImpl implements AdService {
 
     @Override
     public void deleteById(Integer id) {
-        adMapper.deleteById(id);
+        adMapper.deleteByPrimaryKey(id);
     }
 
     @Override
@@ -80,5 +78,10 @@ public class AdServiceImpl implements AdService {
         ad.setAddTime(new Date());
         ad.setUpdateTime(new Date());
         adMapper.insertSelective(ad);
+    }
+
+    @Override
+    public Ad findById(Integer id) {
+        return adMapper.selectByPrimaryKey(id);
     }
 }

@@ -16,14 +16,6 @@
     <result column="deleted" jdbcType="BIT" property="deleted" />
   </resultMap>
 
-
-  <!--扩展的sql-->
-
-  <!--删除-->
-  <delete id="deleteById">
-    DELETE FROM cskaoyan_mall_ad WHERE id = #{id}
-  </delete>
-
   <sql id="Example_Where_Clause">
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">
