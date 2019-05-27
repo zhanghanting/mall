@@ -2,7 +2,7 @@ package com.springboot.mall.controller;
 
 import com.springboot.mall.service.AddressService;
 import com.springboot.mall.service.impl.AddressServiceImpl;
-import com.springboot.mall.utils.JsonBean;
+import com.springboot.mall.utils.JsonUtil;
 import com.springboot.mall.utils.PageUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,9 +17,9 @@ public class AddressController {
 
     @ResponseBody
     @RequestMapping("/address/list")
-    public JsonBean addressList(PageUtils pageUtils){
+    public JsonUtil addressList(PageUtils pageUtils){
 
-        JsonBean addressList = addressService.queryAllAddress(pageUtils);
+        JsonUtil addressList = addressService.queryAllAddress(pageUtils);
         return addressList;
     }
 

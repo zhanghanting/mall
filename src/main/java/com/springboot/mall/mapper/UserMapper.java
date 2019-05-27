@@ -30,10 +30,10 @@ public interface UserMapper {
 
     int updateByPrimaryKey(User record);
 
-<<<<<<< HEAD
+
     List<User> queryAllUser(UserPageUtils userPageUtils);
 
-=======
+
     User viewUserById(@Param("id") Integer id);
->>>>>>> 6b02638d3197da7aaddde92734d0bbf6aecc5496
+
 }

@@ -5,7 +5,7 @@ import com.github.pagehelper.PageInfo;
 import com.springboot.mall.domain.Collect;
 import com.springboot.mall.mapper.FootprintMapper;
 import com.springboot.mall.service.FootprintService;
-import com.springboot.mall.utils.JsonBean;
+import com.springboot.mall.utils.JsonUtil;
 import com.springboot.mall.utils.MallPageHelper;
 import com.springboot.mall.utils.PageUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +20,10 @@ public class FootprintServiceImpl implements FootprintService {
     FootprintMapper footprintMapper;
 
     @Override
-    public JsonBean queryAllFootprint(PageUtils pageUtils) {
+    public JsonUtil queryAllFootprint(PageUtils pageUtils) {
 
             PageHelper.startPage(pageUtils.getPage(),pageUtils.getLimit());
-            JsonBean footprintJsonBean = new JsonBean();
+        JsonUtil footprintJsonBean = new JsonUtil();
             MallPageHelper footprintData = new MallPageHelper();
             List<Collect> collects = footprintMapper.queryAllFootprint(pageUtils);
             PageInfo<Collect> pageInfo = new PageInfo<>(collects);
