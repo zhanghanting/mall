@@ -23,11 +23,11 @@ public interface TopicMapper {
 
     Topic selectByPrimaryKey(Integer id);
 
-    int updateByExampleSelective(@Param("record") Topic record,@Param("example") TopicExample example);
+    int updateByExampleSelective(@Param("record") Topic record, @Param("example") TopicExample example);
 
-    int updateByExampleWithBLOBs(@Param("record") Topic record,@Param("example") TopicExample example);
+    int updateByExampleWithBLOBs(@Param("record") Topic record, @Param("example") TopicExample example);
 
-    int updateByExample(@Param("record") Topic record,@Param("example") TopicExample example);
+    int updateByExample(@Param("record") Topic record, @Param("example") TopicExample example);
 
     int updateByPrimaryKeySelective(Topic record);
 

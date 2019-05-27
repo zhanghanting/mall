@@ -21,11 +21,19 @@ public interface KeywordMapper {
 
     Keyword selectByPrimaryKey(Integer id);
 
-    int updateByExampleSelective(@Param("record") Keyword record,@Param("example") KeywordExample example);
+    int updateByExampleSelective(@Param("record") Keyword record, @Param("example") KeywordExample example);
 
-    int updateByExample(@Param("record") Keyword record,@Param("example") KeywordExample example);
+    int updateByExample(@Param("record") Keyword record, @Param("example") KeywordExample example);
 
     int updateByPrimaryKeySelective(Keyword record);
 
     int updateByPrimaryKey(Keyword record);
+
+    List<Keyword> viewAllKeywords(@Param("sort") String sort,@Param("order") String order,@Param("keyword")  Keyword keyword);
+
+    void insertKeyword(@Param("keyword") Keyword keyword);
+
+    void deleteKeywordById(@Param("keyword")Keyword keyword);
+
+    void updateKeywordById(@Param("keyword")Keyword keyword);
 }

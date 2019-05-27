@@ -23,9 +23,9 @@ public interface SearchHistoryMapper {
 
     SearchHistory selectByPrimaryKey(Integer id);
 
-    int updateByExampleSelective(@Param("record") SearchHistory record,@Param("example") SearchHistoryExample example);
+    int updateByExampleSelective(@Param("record") SearchHistory record, @Param("example") SearchHistoryExample example);
 
-    int updateByExample(@Param("record") SearchHistory record,@Param("example") SearchHistoryExample example);
+    int updateByExample(@Param("record") SearchHistory record, @Param("example") SearchHistoryExample example);
 
     int updateByPrimaryKeySelective(SearchHistory record);
 

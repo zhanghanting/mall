@@ -22,9 +22,9 @@ public interface FeedbackMapper {
 
     Feedback selectByPrimaryKey(Integer id);
 
-    int updateByExampleSelective(@Param("record") Feedback record,@Param("example") FeedbackExample example);
+    int updateByExampleSelective(@Param("record") Feedback record, @Param("example") FeedbackExample example);
 
-    int updateByExample(@Param("record") Feedback record,@Param("example") FeedbackExample example);
+    int updateByExample(@Param("record") Feedback record, @Param("example") FeedbackExample example);
 
     int updateByPrimaryKeySelective(Feedback record);
 

@@ -21,11 +21,14 @@ public interface GrouponRulesMapper {
 
     GrouponRules selectByPrimaryKey(Integer id);
 
-    int updateByExampleSelective(@Param("record") GrouponRules record,@Param("example") GrouponRulesExample example);
+    int updateByExampleSelective(@Param("record") GrouponRules record, @Param("example") GrouponRulesExample example);
 
-    int updateByExample(@Param("record") GrouponRules record,@Param("example") GrouponRulesExample example);
+    int updateByExample(@Param("record") GrouponRules record, @Param("example") GrouponRulesExample example);
 
     int updateByPrimaryKeySelective(GrouponRules record);
 
     int updateByPrimaryKey(GrouponRules record);
+
+    //
+    GrouponRules selectOneByExample(GrouponRulesExample example);
 }

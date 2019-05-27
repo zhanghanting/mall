@@ -21,11 +21,21 @@ public interface IssueMapper {
 
     Issue selectByPrimaryKey(Integer id);
 
-    int updateByExampleSelective(@Param("record") Issue record,@Param("example") IssueExample example);
+    int updateByExampleSelective(@Param("record") Issue record, @Param("example") IssueExample example);
 
-    int updateByExample(@Param("record") Issue record,@Param("example") IssueExample example);
+    int updateByExample(@Param("record") Issue record, @Param("example") IssueExample example);
 
     int updateByPrimaryKeySelective(Issue record);
 
     int updateByPrimaryKey(Issue record);
+
+    List<Issue> viewAllIssues(@Param("sort") String sort,
+                              @Param("order")String order,
+                              @Param("question") String question);
+
+    void insertIssue(@Param("issue") Issue issue);
+
+    void updateIssueById(@Param("issue")Issue issue);
+
+    void deleteIssueById(@Param("issue")Issue issue);
 }

@@ -21,9 +21,9 @@ public interface GoodsProductMapper {
 
     GoodsProduct selectByPrimaryKey(Integer id);
 
-    int updateByExampleSelective(@Param("record") GoodsProduct record,@Param("example") GoodsProductExample example);
+    int updateByExampleSelective(@Param("record") GoodsProduct record, @Param("example") GoodsProductExample example);
 
-    int updateByExample(@Param("record") GoodsProduct record,@Param("example") GoodsProductExample example);
+    int updateByExample(@Param("record") GoodsProduct record, @Param("example") GoodsProductExample example);
 
     int updateByPrimaryKeySelective(GoodsProduct record);
 

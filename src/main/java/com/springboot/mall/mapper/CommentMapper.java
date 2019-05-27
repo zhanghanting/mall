@@ -21,9 +21,9 @@ public interface CommentMapper {
 
     Comment selectByPrimaryKey(Integer id);
 
-    int updateByExampleSelective(@Param("record") Comment record,@Param("example") CommentExample example);
+    int updateByExampleSelective(@Param("record") Comment record, @Param("example") CommentExample example);
 
-    int updateByExample(@Param("record") Comment record,@Param("example") CommentExample example);
+    int updateByExample(@Param("record") Comment record, @Param("example") CommentExample example);
 
     int updateByPrimaryKeySelective(Comment record);
 

@@ -22,14 +22,18 @@ public interface UserMapper {
 
     User selectByPrimaryKey(Integer id);
 
-    int updateByExampleSelective(@Param("record") User record,@Param("example") UserExample example);
+    int updateByExampleSelective(@Param("record") User record, @Param("example") UserExample example);
 
-    int updateByExample(@Param("record") User record,@Param("example") UserExample example);
+    int updateByExample(@Param("record") User record, @Param("example") UserExample example);
 
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
 
+<<<<<<< HEAD
     List<User> queryAllUser(UserPageUtils userPageUtils);
 
+=======
+    User viewUserById(@Param("id") Integer id);
+>>>>>>> 6b02638d3197da7aaddde92734d0bbf6aecc5496
 }

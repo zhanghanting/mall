@@ -23,15 +23,21 @@ public interface GoodsMapper {
 
     Goods selectByPrimaryKey(Integer id);
 
-    int updateByExampleSelective(@Param("record") Goods record,@Param("example") GoodsExample example);
+    int updateByExampleSelective(@Param("record") Goods record, @Param("example") GoodsExample example);
 
-    int updateByExampleWithBLOBs(@Param("record") Goods record,@Param("example") GoodsExample example);
+    int updateByExampleWithBLOBs(@Param("record") Goods record, @Param("example") GoodsExample example);
 
-    int updateByExample(@Param("record") Goods record,@Param("example") GoodsExample example);
+    int updateByExample(@Param("record") Goods record, @Param("example") GoodsExample example);
 
     int updateByPrimaryKeySelective(Goods record);
 
     int updateByPrimaryKeyWithBLOBs(Goods record);
 
     int updateByPrimaryKey(Goods record);
+
+    //
+   Goods selectOneByExampleWithBLOBs(GoodsExample example);
+
+
+
 }

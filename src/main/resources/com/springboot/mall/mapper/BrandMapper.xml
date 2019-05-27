@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.springboot.mall.mapper.BrandMapper">
+
   <resultMap id="BrandMap" type="com.springboot.mall.domain.Brand">
     <id column="id"  property="id" />
     <result column="name" property="name" />
@@ -65,5 +66,6 @@
   <update id="deleteBrandById">
     update  cskaoyan_mall_brand set deleted = 1 where id = #{brand.id}
   </update>
+
 
 </mapper>

@@ -21,9 +21,9 @@ public interface SystemMapper {
 
     System selectByPrimaryKey(Integer id);
 
-    int updateByExampleSelective(@Param("record") System record,@Param("example") SystemExample example);
+    int updateByExampleSelective(@Param("record") System record, @Param("example") SystemExample example);
 
-    int updateByExample(@Param("record") System record,@Param("example") SystemExample example);
+    int updateByExample(@Param("record") System record, @Param("example") SystemExample example);
 
     int updateByPrimaryKeySelective(System record);
 

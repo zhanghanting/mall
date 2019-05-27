@@ -23,9 +23,9 @@ public interface FootprintMapper {
 
     Footprint selectByPrimaryKey(Integer id);
 
-    int updateByExampleSelective(@Param("record") Footprint record,@Param("example") FootprintExample example);
+    int updateByExampleSelective(@Param("record") Footprint record, @Param("example") FootprintExample example);
 
-    int updateByExample(@Param("record") Footprint record,@Param("example") FootprintExample example);
+    int updateByExample(@Param("record") Footprint record, @Param("example") FootprintExample example);
 
     int updateByPrimaryKeySelective(Footprint record);
 

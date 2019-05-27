@@ -23,9 +23,9 @@ public interface CollectMapper {
 
     Collect selectByPrimaryKey(Integer id);
 
-    int updateByExampleSelective(@Param("record") Collect record,@Param("example") CollectExample example);
+    int updateByExampleSelective(@Param("record") Collect record, @Param("example") CollectExample example);
 
-    int updateByExample(@Param("record") Collect record,@Param("example") CollectExample example);
+    int updateByExample(@Param("record") Collect record, @Param("example") CollectExample example);
 
     int updateByPrimaryKeySelective(Collect record);
 

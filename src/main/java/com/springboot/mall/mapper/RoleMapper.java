@@ -21,9 +21,9 @@ public interface RoleMapper {
 
     Role selectByPrimaryKey(Integer id);
 
-    int updateByExampleSelective(@Param("record") Role record,@Param("example") RoleExample example);
+    int updateByExampleSelective(@Param("record") Role record, @Param("example") RoleExample example);
 
-    int updateByExample(@Param("record") Role record,@Param("example") RoleExample example);
+    int updateByExample(@Param("record") Role record, @Param("example") RoleExample example);
 
     int updateByPrimaryKeySelective(Role record);
 

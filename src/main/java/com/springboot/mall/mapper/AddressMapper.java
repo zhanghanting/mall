@@ -22,9 +22,9 @@ public interface AddressMapper {
 
     Address selectByPrimaryKey(Integer id);
 
-    int updateByExampleSelective(@Param("record") Address record,@Param("example") AddressExample example);
+    int updateByExampleSelective(@Param("record") Address record, @Param("example") AddressExample example);
 
-    int updateByExample(@Param("record") Address record,@Param("example") AddressExample example);
+    int updateByExample(@Param("record") Address record, @Param("example") AddressExample example);
 
     int updateByPrimaryKeySelective(Address record);
 
