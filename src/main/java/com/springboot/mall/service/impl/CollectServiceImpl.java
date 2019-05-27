@@ -23,15 +23,15 @@ public class CollectServiceImpl implements CollectService {
     @Override
     public JsonUtil queryAllCollect(PageUtils pageUtils) {
         PageHelper.startPage(pageUtils.getPage(),pageUtils.getLimit());
-        JsonUtil collectJsonBean = new JsonUtil();
+        JsonUtil collectJsonUtil = new JsonUtil();
         MallPageHelper collectData = new MallPageHelper();
         List<Collect> collects = collectMapper.queryAllCollect(pageUtils);
         PageInfo<Collect> pageInfo = new PageInfo<>(collects);
         collectData.setItems(collects);
         collectData.setTotal(pageInfo.getTotal());
-        collectJsonBean.setData(collectData);
-        collectJsonBean.setErrno(0);
-        collectJsonBean.setErrmsg("成功");
-        return collectJsonBean;
+        collectJsonUtil.setData(collectData);
+        collectJsonUtil.setErrno(0);
+        collectJsonUtil.setErrmsg("成功");
+        return collectJsonUtil;
     }
 }

@@ -2,7 +2,7 @@ package com.springboot.mall.controller;
 
 import com.springboot.mall.service.UserService;
 import com.springboot.mall.service.impl.UserServiceImpl;
-import com.springboot.mall.utils.JsonBean;
+import com.springboot.mall.utils.JsonUtil;
 import com.springboot.mall.utils.UserPageUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,9 +17,9 @@ public class UserManagerController {
 
     @ResponseBody
     @RequestMapping("/user/list")
-    public JsonBean userList(UserPageUtils userPageUtils){
+    public JsonUtil userList(UserPageUtils userPageUtils){
 
-        JsonBean userList = userService.queryAllUser(userPageUtils);
+        JsonUtil userList = userService.queryAllUser(userPageUtils);
         return userList;
     }
 }

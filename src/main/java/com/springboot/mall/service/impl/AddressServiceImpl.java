@@ -22,15 +22,15 @@ public class AddressServiceImpl implements AddressService {
     @Override
     public JsonUtil queryAllAddress(PageUtils pageUtils) {
         PageHelper.startPage(pageUtils.getPage(),pageUtils.getLimit());
-        JsonUtil addressJsonBean = new JsonUtil();
+        JsonUtil addressJsonUtil = new JsonUtil();
         MallPageHelper addressData = new MallPageHelper();
         List<Address> addresses = addressMapper.queryAllAddress(pageUtils);
         PageInfo<Address> pageInfo = new PageInfo<>(addresses);
         addressData.setItems(addresses);
         addressData.setTotal(pageInfo.getTotal());
-        addressJsonBean.setData(addressData);
-        addressJsonBean.setErrno(0);
-        addressJsonBean.setErrmsg("成功");
-        return addressJsonBean;
+        addressJsonUtil.setData(addressData);
+        addressJsonUtil.setErrno(0);
+        addressJsonUtil.setErrmsg("成功");
+        return addressJsonUtil;
     }
 }

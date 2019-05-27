@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.springboot.mall.mapper.SearchHistoryMapper">
-<<<<<<< HEAD
 
 
     <resultMap id="searchHistoryMap" type="com.springboot.mall.domain.SearchHistory">
@@ -18,7 +17,6 @@
         from `cskaoyan_mall_search_history`
     </select>
 
-=======
   <resultMap id="BaseResultMap" type="com.springboot.mall.domain.SearchHistory">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="user_id" jdbcType="INTEGER" property="userId" />
@@ -258,5 +256,4 @@
       deleted = #{deleted,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}
   </update>
->>>>>>> 6b02638d3197da7aaddde92734d0bbf6aecc5496
 </mapper>

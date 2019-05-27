@@ -22,15 +22,15 @@ public class UserServiceImpl implements UserService {
     @Override
     public JsonUtil queryAllUser(UserPageUtils userPageUtils) {
         PageHelper.startPage(userPageUtils.getPage(),userPageUtils.getLimit());
-        JsonUtil userJsonBean = new JsonUtil();
+        JsonUtil userJsonUtil = new JsonUtil();
         MallPageHelper userData = new MallPageHelper();
         List<User> users = userMapper.queryAllUser(userPageUtils);
         PageInfo<User> pageInfo = new PageInfo<>(users);
         userData.setItems(users);
         userData.setTotal(pageInfo.getTotal());
-        userJsonBean.setData(userData);
-        userJsonBean.setErrno(0);
-        userJsonBean.setErrmsg("成功");
-        return userJsonBean;
+        userJsonUtil.setData(userData);
+        userJsonUtil.setErrno(0);
+        userJsonUtil.setErrmsg("成功");
+        return userJsonUtil;
     }
 }

@@ -3,7 +3,7 @@ package com.springboot.mall.controller;
 
 import com.springboot.mall.service.SearchHistoryService;
 import com.springboot.mall.service.impl.SearchHistoryServiceImpl;
-import com.springboot.mall.utils.JsonBean;
+import com.springboot.mall.utils.JsonUtil;
 import com.springboot.mall.utils.PageUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,9 +18,9 @@ public class SearchHistoryController {
 
     @ResponseBody
     @RequestMapping("/history/list")
-    public JsonBean searchHistoryList(PageUtils pageUtils){
+    public JsonUtil searchHistoryList(PageUtils pageUtils){
 
-        JsonBean searchHistoryList = searchHistoryService.queryAllSearchHistory(pageUtils);
+        JsonUtil searchHistoryList = searchHistoryService.queryAllSearchHistory(pageUtils);
         return searchHistoryList;
     }
 }

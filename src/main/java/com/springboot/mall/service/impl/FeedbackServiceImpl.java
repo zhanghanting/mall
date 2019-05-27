@@ -23,15 +23,15 @@ public class FeedbackServiceImpl implements FeedbackService {
     @Override
     public JsonUtil queryAllFeedback(PageUtils pageUtils) {
         PageHelper.startPage(pageUtils.getPage(),pageUtils.getLimit());
-        JsonUtil feedbackJsonBean = new JsonUtil();
+        JsonUtil feedbackJsonUtil = new JsonUtil();
         MallPageHelper feedbackData = new MallPageHelper();
         List<Feedback> feedbacks = feedbackMapper.queryAllFeedback(pageUtils);
         PageInfo<Feedback> pageInfo = new PageInfo<>(feedbacks);
         feedbackData.setItems(feedbacks);
         feedbackData.setTotal(pageInfo.getTotal());
-        feedbackJsonBean.setData(feedbackData);
-        feedbackJsonBean.setErrno(0);
-        feedbackJsonBean.setErrmsg("成功");
-        return feedbackJsonBean;
+        feedbackJsonUtil.setData(feedbackData);
+        feedbackJsonUtil.setErrno(0);
+        feedbackJsonUtil.setErrmsg("成功");
+        return feedbackJsonUtil;
     }
 }

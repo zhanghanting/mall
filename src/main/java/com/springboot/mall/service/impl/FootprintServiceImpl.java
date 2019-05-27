@@ -23,16 +23,16 @@ public class FootprintServiceImpl implements FootprintService {
     public JsonUtil queryAllFootprint(PageUtils pageUtils) {
 
             PageHelper.startPage(pageUtils.getPage(),pageUtils.getLimit());
-        JsonUtil footprintJsonBean = new JsonUtil();
+        JsonUtil footprintJsonUtil = new JsonUtil();
             MallPageHelper footprintData = new MallPageHelper();
             List<Collect> collects = footprintMapper.queryAllFootprint(pageUtils);
             PageInfo<Collect> pageInfo = new PageInfo<>(collects);
         footprintData.setItems(collects);
         footprintData.setTotal(pageInfo.getTotal());
-        footprintJsonBean.setData(footprintData);
-        footprintJsonBean.setErrno(0);
-        footprintJsonBean.setErrmsg("成功");
-            return footprintJsonBean;
+        footprintJsonUtil.setData(footprintData);
+        footprintJsonUtil.setErrno(0);
+        footprintJsonUtil.setErrmsg("成功");
+            return footprintJsonUtil;
         }
 
 }

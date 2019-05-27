@@ -22,16 +22,16 @@ public class SearchHistoryServiceImpl implements SearchHistoryService {
     @Override
     public JsonUtil queryAllSearchHistory(PageUtils pageUtils) {
         PageHelper.startPage(pageUtils.getPage(),pageUtils.getLimit());
-        JsonUtil searchHistoryJsonBean = new JsonUtil();
+        JsonUtil searchHistoryJsonUtil = new JsonUtil();
         MallPageHelper searchHistoryData = new MallPageHelper();
         List<SearchHistory> searchHistories = searchHistoryMapper.queryAllSearchHistory(pageUtils);
         PageInfo<SearchHistory> pageInfo = new PageInfo<>(searchHistories);
         searchHistoryData.setItems(searchHistories);
         searchHistoryData.setTotal(pageInfo.getTotal());
-        searchHistoryJsonBean.setData(searchHistoryData);
-        searchHistoryJsonBean.setErrno(0);
-        searchHistoryJsonBean.setErrmsg("成功");
-        return searchHistoryJsonBean;
+        searchHistoryJsonUtil.setData(searchHistoryData);
+        searchHistoryJsonUtil.setErrno(0);
+        searchHistoryJsonUtil.setErrmsg("成功");
+        return searchHistoryJsonUtil;
     }
 
 }
