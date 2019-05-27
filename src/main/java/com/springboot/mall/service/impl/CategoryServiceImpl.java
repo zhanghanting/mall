@@ -6,7 +6,9 @@ import com.springboot.mall.service.CategoryService;
 import com.springboot.mall.utils.JsonBean;
 import com.springboot.mall.utils.PageUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CategoryServiceImpl implements CategoryService {
 
     @Autowired

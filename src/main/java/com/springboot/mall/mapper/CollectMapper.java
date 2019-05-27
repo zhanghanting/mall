@@ -1,7 +1,9 @@
 package com.springboot.mall.mapper;
 
+import com.springboot.mall.domain.Address;
 import com.springboot.mall.domain.Collect;
 import com.springboot.mall.domain.CollectExample;
+import com.springboot.mall.utils.PageUtils;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -28,4 +30,6 @@ public interface CollectMapper {
     int updateByPrimaryKeySelective(Collect record);
 
     int updateByPrimaryKey(Collect record);
+
+    List<Collect> queryAllCollect(PageUtils pageUtils);
 }

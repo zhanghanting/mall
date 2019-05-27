@@ -1,6 +1,5 @@
 package com.springboot.mall.controller;
 
-import com.springboot.mall.domain.Category;
 import com.springboot.mall.service.CategoryService;
 import com.springboot.mall.utils.JsonBean;
 import com.springboot.mall.utils.PageUtils;
