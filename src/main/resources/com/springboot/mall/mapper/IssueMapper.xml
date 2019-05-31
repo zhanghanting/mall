@@ -9,6 +9,45 @@
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="deleted" jdbcType="BIT" property="deleted" />
   </resultMap>
+
+  <select id="viewAllIssues" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List"/> from cskaoyan_mall_issue
+    <where>
+    deleted = 0
+      <if test="question != null and question.length gt 0">
+        and question like #{question}
+      </if>
+    </where>
+    order by #{sort} #{order}
+  </select>
+
+  <insert id="insertIssue">
+<selectKey keyProperty="id" resultType="java.lang.Integer" order="AFTER">
+  SELECT LAST_INSERT_ID()
+</selectKey>
+    insert into cskaoyan_mall_issue ( <include refid="Base_Column_List"/> ) value
+    (null, #{issue.question}, #{issue.answer}, now(), now(), 0)
+  </insert>
+
+  <update id="updateIssueById">
+    update cskaoyan_mall_issue
+    <set>
+    update_time = now() ,
+      <if test="issue.question != null and issue.question.length gt 0">
+        question =  #{issue.question} ,
+      </if>
+      <if test="issue.answer != null and issue.answer.length gt 0">
+        answer =  #{issue.answer}
+      </if>
+    </set>
+  </update>
+  <update id="deleteIssueById">
+    update cskaoyan_mall_issue set update_time = now()  , deleted = 1
+    where id = #{issue.id}
+
+  </update>
+
+
   <sql id="Example_Where_Clause">
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">

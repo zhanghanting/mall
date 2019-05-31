@@ -2,6 +2,7 @@ package com.springboot.mall.mapper;
 
 import com.springboot.mall.domain.Address;
 import com.springboot.mall.domain.AddressExample;
+import com.springboot.mall.utils.PageUtils;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -28,4 +29,6 @@ public interface AddressMapper {
     int updateByPrimaryKeySelective(Address record);
 
     int updateByPrimaryKey(Address record);
+
+    List<Address> queryAllAddress(PageUtils pageUtils);
 }

@@ -27,6 +27,11 @@
     update cskaoyan_mall_admin
   </update>
   <!--delete-->
+  <delete id="deleteByPrimaryKey">
+    delete
+    from cskaoyan_mall_admin
+    where id = #{id}
+  </delete>
   <!--add-->
   <!--根据id返回角色名-->
   <select id="find" resultType="string">

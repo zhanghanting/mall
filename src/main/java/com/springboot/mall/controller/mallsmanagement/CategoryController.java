@@ -1,17 +1,16 @@
-package com.springboot.mall.controller;
+package com.springboot.mall.controller.mallsmanagement;
 
 import com.springboot.mall.domain.Category;
-import com.springboot.mall.service.CategoryService;
+import com.springboot.mall.service.mallsmanagement.CategoryService;
 import com.springboot.mall.utils.JsonUtil;
 import com.springboot.mall.utils.PageUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/category")
+@RequestMapping("/admin/category")
 public class CategoryController {
 
     @Autowired

@@ -1,10 +1,10 @@
-package com.springboot.mall.service.impl;
+package com.springboot.mall.service.mallsmanagement.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.springboot.mall.domain.Brand;
 import com.springboot.mall.mapper.BrandMapper;
-import com.springboot.mall.service.BrandService;
+import com.springboot.mall.service.mallsmanagement.BrandService;
 import com.springboot.mall.utils.JsonUtil;
 import com.springboot.mall.utils.MallPageHelper;
 import com.springboot.mall.utils.PageUtils;

@@ -1,6 +1,10 @@
 package com.springboot.mall.utils;
 
 import java.util.List;
+/**
+ * @Author: LifeTruth
+ * @Date: 2019/5/24 20:27
+ */
 
 public class MyPageHelper<T> {
     private long total;
@@ -18,7 +22,6 @@ public class MyPageHelper<T> {
     {
         return items;
     }
-
     public void setItems(List<T> items)
     {
         this.items = items;

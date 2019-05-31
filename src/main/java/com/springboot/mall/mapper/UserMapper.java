@@ -2,6 +2,7 @@ package com.springboot.mall.mapper;
 
 import com.springboot.mall.domain.User;
 import com.springboot.mall.domain.UserExample;
+import com.springboot.mall.utils.UserPageUtils;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -28,4 +29,11 @@ public interface UserMapper {
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
+
+
+    List<User> queryAllUser(UserPageUtils userPageUtils);
+
+
+    User viewUserById(@Param("id") Integer id);
+
 }

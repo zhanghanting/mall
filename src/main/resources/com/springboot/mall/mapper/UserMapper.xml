@@ -1,6 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.springboot.mall.mapper.UserMapper">
+
+    <resultMap id="userMap" type="com.springboot.mall.domain.User">
+        <result column="id" property="id"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="gender" property="gender"/>
+        <result column="birthday" property="birthday"/>
+        <result column="last_login_time" property="lastLoginTime"/>
+        <result column="last_login_ip" property="lastLoginIp"/>
+        <result column="user_level" property="userLevel"/>
+        <result column="nickname" property="nickname"/>
+        <result column="mobile" property="mobile"/>
+        <result column="avatar" property="avatar"/>
+        <result column="weixin_openid" property="weixinOpenid"/>
+        <result column="status" property="status"/>
+        <result column="add_time" property="addTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="deleted" property="deleted"/>
+    </resultMap>
+    <select id="queryAllUser" resultMap="userMap" parameterType="com.springboot.mall.utils.UserPageUtils">
+select `id`,`username`,`gender`,`password`,`birthday`,`last_login_time`,
+`last_login_ip`, `user_level`,`nickname`,`mobile`,`avatar`,`weixin_openid`,
+`status`,`add_time`, `update_time`,`deleted`
+from `cskaoyan_mall_user` where 1=1
+
+    <if test="username!=null">
+        and `username` like concat("%",#{username},"%")
+    </if>
+    <if test="mobile!=null">
+        and `mobile`=concat(#{mobile})
+    </if>
+
+    </select>
+
   <resultMap id="BaseResultMap" type="com.springboot.mall.domain.User">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="username" jdbcType="VARCHAR" property="username" />
@@ -19,6 +53,10 @@
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="deleted" jdbcType="BIT" property="deleted" />
   </resultMap>
+
+  <select id="viewUserById" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List"/> from cskaoyan_mall_user where id = #{id} and deleted = 0
+  </select>
   <sql id="Example_Where_Clause">
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">

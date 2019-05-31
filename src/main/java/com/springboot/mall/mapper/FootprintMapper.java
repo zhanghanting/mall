@@ -1,7 +1,9 @@
 package com.springboot.mall.mapper;
 
+import com.springboot.mall.domain.Collect;
 import com.springboot.mall.domain.Footprint;
 import com.springboot.mall.domain.FootprintExample;
+import com.springboot.mall.utils.PageUtils;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -28,4 +30,6 @@ public interface FootprintMapper {
     int updateByPrimaryKeySelective(Footprint record);
 
     int updateByPrimaryKey(Footprint record);
+
+    List<Collect> queryAllFootprint(PageUtils pageUtils);
 }

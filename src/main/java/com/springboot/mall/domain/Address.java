@@ -3,17 +3,17 @@ package com.springboot.mall.domain;
 import java.util.Date;
 
 public class Address {
-    private Integer id;
+        private Integer id;
 
-    private String name;
+        private String name;
 
-    private Integer userId;
+        private Integer userId;
 
-    private Integer provinceId;
+        private Integer provinceId;
 
-    private Integer cityId;
+        private Integer cityId;
 
-    private Integer areaId;
+        private Integer areaId;
 
     private String address;
 

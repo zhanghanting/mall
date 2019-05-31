@@ -14,7 +14,7 @@ public interface AdminMapper {
     List<AdminVo> getAdmins(@Param("sort") String sort,@Param("order") String order,@Param("name") String name);
     int deleteByExample(AdminExample example);
 
-    int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(@Param("id") Integer id);
 
     int insert(Admin record);
 

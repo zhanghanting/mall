@@ -2,6 +2,7 @@ package com.springboot.mall.mapper;
 
 import com.springboot.mall.domain.Feedback;
 import com.springboot.mall.domain.FeedbackExample;
+import com.springboot.mall.utils.PageUtils;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -28,4 +29,6 @@ public interface FeedbackMapper {
     int updateByPrimaryKeySelective(Feedback record);
 
     int updateByPrimaryKey(Feedback record);
+
+    List<Feedback> queryAllFeedback(PageUtils pageUtils);
 }
