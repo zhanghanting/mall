@@ -21,9 +21,9 @@ public interface IssueMapper {
 
     Issue selectByPrimaryKey(Integer id);
 
-    int updateByExampleSelective(@Param("record") Issue record,@Param("example") IssueExample example);
+    int updateByExampleSelective(@Param("record") Issue record, @Param("example") IssueExample example);
 
-    int updateByExample(@Param("record") Issue record,@Param("example") IssueExample example);
+    int updateByExample(@Param("record") Issue record, @Param("example") IssueExample example);
 
     int updateByPrimaryKeySelective(Issue record);
 

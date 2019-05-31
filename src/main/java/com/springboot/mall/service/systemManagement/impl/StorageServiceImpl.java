@@ -5,10 +5,15 @@ import com.github.pagehelper.PageInfo;
 import com.springboot.mall.domain.Storage;
 import com.springboot.mall.mapper.StorageMapper;
 import com.springboot.mall.service.systemManagement.StorageService;
+import com.springboot.mall.utils.JsonUtil;
 import com.springboot.mall.utils.MyPageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 @Service
 public class StorageServiceImpl implements StorageService
@@ -44,6 +49,40 @@ public class StorageServiceImpl implements StorageService
         }
         else
             return null;
+    }
+
+    @Override
+    public JsonUtil add(MultipartFile file,HttpServletRequest request)
+    {
+        long l = System.currentTimeMillis();
+        System.out.println(this.getClass().getClassLoader().getResource(""));
+        String path = this.getClass().getClassLoader().getResource("").getPath() + "static/picture/";
+        File dirFile = new File(path);
+        if(!dirFile.exists()){
+            dirFile.mkdirs();
+        }
+        //生成图片的存储路径
+
+        File filePath = new File(path,l+"_"+file.getOriginalFilename());
+        String requestURI = "http://" + "localhost:" + request.getLocalPort() + "/admin/picture/" + l +"_" + file.getOriginalFilename();
+        Storage storage = new Storage();
+        storage.setKey(file.getOriginalFilename());
+        storage.setSize((int) file.getSize());
+        storage.setType(file.getContentType());
+        storage.setName(file.getOriginalFilename());
+        storage.setUrl(requestURI);
+        storageMapper.insertStorage(storage);
+        storage = storageMapper.selectStorageByUrl(requestURI);
+        try
+        {
+            file.transferTo(filePath);
+        }
+        catch(IOException e)
+        {
+            e.printStackTrace();
+        }
+
+        return new JsonUtil(storage,0,"OK");
     }
 
     @Override

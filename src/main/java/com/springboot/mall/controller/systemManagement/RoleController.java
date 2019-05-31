@@ -4,13 +4,14 @@ import com.springboot.mall.domain.Role;
 import com.springboot.mall.service.systemManagement.RoleService;
 import com.springboot.mall.utils.JsonUtil;
 import com.springboot.mall.utils.MyPageHelper;
+import jdk.nashorn.internal.runtime.regexp.JoniRegExp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+
 
 @Controller
+@RequestMapping("/admin")
 public class RoleController
 {
     @Autowired
@@ -27,8 +28,8 @@ public class RoleController
         return jsonUtil;
     }
     @ResponseBody
-    @RequestMapping(value = "/role/create",method = RequestMethod.POST)
-    public JsonUtil add(Role role)
+    @RequestMapping(value = "/role/create")
+    public JsonUtil add(@RequestBody Role role)
     {
         JsonUtil jsonUtil = new JsonUtil();
         Role role1 = roleService.add(role);
@@ -37,4 +38,19 @@ public class RoleController
         jsonUtil.setErrmsg("成功");
         return jsonUtil;
     }
+    @ResponseBody
+    @RequestMapping(value = "role/update")
+    public JsonUtil update(@RequestBody Role role)
+    {
+        JsonUtil jsonUtil = roleService.update(role);
+        return jsonUtil;
+    }
+    @ResponseBody
+    @RequestMapping("/role/delete")
+    public JsonUtil delete(@RequestBody Role role)
+    {
+        JsonUtil jsonUtil = roleService.delete(role);
+        return jsonUtil;
+    }
+
 }

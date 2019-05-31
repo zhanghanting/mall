@@ -21,9 +21,9 @@ public interface CouponUserMapper {
 
     CouponUser selectByPrimaryKey(Integer id);
 
-    int updateByExampleSelective(@Param("record") CouponUser record,@Param("example") CouponUserExample example);
+    int updateByExampleSelective(@Param("record") CouponUser record, @Param("example") CouponUserExample example);
 
-    int updateByExample(@Param("record") CouponUser record,@Param("example") CouponUserExample example);
+    int updateByExample(@Param("record") CouponUser record, @Param("example") CouponUserExample example);
 
     int updateByPrimaryKeySelective(CouponUser record);
 

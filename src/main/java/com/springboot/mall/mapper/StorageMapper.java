@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 public interface StorageMapper {
-    long countByExample(StorageExample example);
+    int insertStorage(@Param("storage") Storage storage);
 
     int deleteByExample(StorageExample example);
 
@@ -21,9 +21,9 @@ public interface StorageMapper {
 
     Storage selectByPrimaryKey(Integer id);
 
-    int updateByExampleSelective(@Param("record") Storage record,@Param("example") StorageExample example);
+    int updateByExampleSelective(@Param("record") Storage record, @Param("example") StorageExample example);
 
-    int updateByExample(@Param("record") Storage record,@Param("example") StorageExample example);
+    int updateByExample(@Param("record") Storage record, @Param("example") StorageExample example);
 
     int updateByPrimaryKeySelective(Storage record);
 
@@ -32,4 +32,8 @@ public interface StorageMapper {
     List<Storage> getStorage(String sort,String order,String key,String name);
 
     int update(@Param("storage") Storage storage);
+
+    int delete(@Param("storage") Storage storage);
+
+    Storage selectStorageByUrl(@Param("url") String url);
 }

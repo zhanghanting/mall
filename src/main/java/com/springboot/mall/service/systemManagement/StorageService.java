@@ -1,7 +1,10 @@
 package com.springboot.mall.service.systemManagement;
 import com.springboot.mall.domain.Storage;
+import com.springboot.mall.utils.JsonUtil;
 import com.springboot.mall.utils.MyPageHelper;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 public interface StorageService
@@ -14,4 +17,6 @@ public interface StorageService
     Storage update(Storage storage);
 
     int delete(Storage storage);
+
+    JsonUtil add(MultipartFile file,HttpServletRequest request);
 }

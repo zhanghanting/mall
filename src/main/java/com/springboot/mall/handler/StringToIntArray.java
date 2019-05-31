@@ -10,12 +10,24 @@ import java.sql.SQLException;
 
 public class StringToIntArray extends BaseTypeHandler<int []>
 {
+
     @Override
-    public void setNonNullParameter(PreparedStatement preparedStatement,int i,int[] ints,JdbcType jdbcType) throws SQLException
+    public void setNonNullParameter(PreparedStatement preparedStatement,int index,int[] ints,JdbcType jdbcType) throws SQLException
     {
+        //将JavaBean字段类型转换为对应数据库中的类型
+        //index是你需要转换的数据所在数据库表的列数
+        StringBuilder stringBuilder = new StringBuilder();
+        for(int i = 0;i < ints.length;++i)
+        {
+            stringBuilder.append(ints[i]);
+            if(i != ints.length-1)
+                stringBuilder.append(",");
+        }
+        String s = stringBuilder.toString();
+        preparedStatement.setString(index,s);
 
     }
-
+    //数据库中column字段类型转换为相应的JavaBean类型
     @Override
     public int[] getNullableResult(ResultSet resultSet,String s) throws SQLException
     {

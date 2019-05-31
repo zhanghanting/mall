@@ -21,25 +21,53 @@
   </resultMap>
   <!--条件查询-->
   <select id="getRoles" resultMap="roleMap">
-      select id,
-             cskaoyan_mall_role.name roleName,
-             cskaoyan_mall_role.desc roleDesc,
-             enabled,
-             add_time,
-             update_time,
-             deleted
-      from cskaoyan_mall_role
-      <if test="name!=null">
-        where `name` like concat('%',#{name},'%')
-      </if>
-      order by ${sort} ${order}
+    select id,
+    cskaoyan_mall_role.name roleName,
+    cskaoyan_mall_role.desc roleDesc,
+    enabled,
+    add_time,
+    update_time,
+    deleted
+    from cskaoyan_mall_role
+    <if test="name!=null">
+      where `name` like concat('%',#{name},'%')
+    </if>
+    order by ${sort} ${order}
 
+  </select>
+  <!--getRoleVo-->
+  <resultMap id="roleVoMap" type="com.springboot.mall.domain.vo.RoleVo">
+    <result property="value" column="id"/>
+    <result property="label" column="name"/>
+  </resultMap>
+  <select id="getRoleVo" resultMap="roleVoMap">
+    select id,`name`
+    from cskaoyan_mall_role
+  </select>
+ <!--queryRoleNameById-->
+  <select id="queryRoleNameById" resultType="string">
+    select `name`
+    from cskaoyan_mall_role
+    where id = #{roleId}
   </select>
   <!--添加-->
   <insert id="add">
     insert into cskaoyan_mall_role(`name`,`desc`,enabled,add_time,update_time,deleted)
     values (#{role.name},#{role.desc},#{role.enabled},#{role.addTime},#{role.updateTime},#{role.deleted})
   </insert>
+  <!--更新-->
+  <update id="update">
+    update cskaoyan_mall_role
+    set cskaoyan_mall_role.name = #{role.name},
+        cskaoyan_mall_role.desc = #{role.desc}
+    where cskaoyan_mall_role.id = #{role.id}
+  </update>
+  <!--删除-->
+  <update id="delete">
+    delete
+    from cskaoyan_mall_role
+    where cskaoyan_mall_role.id = #{role.id}
+  </update>
   <sql id="Example_Where_Clause">
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">

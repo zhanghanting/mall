@@ -2,17 +2,50 @@ package com.springboot.mall.domain.vo;
 
 import com.springboot.mall.domain.Admin;
 
-public class AdminVo extends Admin
+public class AdminVo
 {
-    String roleName;//角色名
+    private String id;
+    private String username;
+    private String avatar;
+    private int[] roleIds;
 
-    public String getRoleName()
+    public String getId()
     {
-        return roleName;
+        return id;
     }
 
-    public void setRoleName(String roleName)
+    public void setId(String id)
     {
-        this.roleName = roleName;
+        this.id = id;
+    }
+
+    public String getUsername()
+    {
+        return username;
+    }
+
+    public void setUsername(String username)
+    {
+        this.username = username;
+    }
+
+    public String getAvatar()
+    {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar)
+    {
+        this.avatar = avatar;
+    }
+
+    public int[] getRoleIds()
+    {
+        return roleIds;
+    }
+
+    public void setRoleIds(int[] roleIds)
+    {
+        this.roleIds = roleIds;
     }
 }

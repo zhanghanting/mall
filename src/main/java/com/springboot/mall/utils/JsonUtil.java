@@ -13,7 +13,7 @@ public class JsonUtil
     {
     }
 
-    public JsonUtil(Object data,Integer errno,String errmsg)
+    public JsonUtil(Object data, Integer errno, String errmsg)
     {
         this.data = data;
         this.errno = errno;

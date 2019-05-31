@@ -21,9 +21,9 @@ public interface KeywordMapper {
 
     Keyword selectByPrimaryKey(Integer id);
 
-    int updateByExampleSelective(@Param("record") Keyword record,@Param("example") KeywordExample example);
+    int updateByExampleSelective(@Param("record") Keyword record, @Param("example") KeywordExample example);
 
-    int updateByExample(@Param("record") Keyword record,@Param("example") KeywordExample example);
+    int updateByExample(@Param("record") Keyword record, @Param("example") KeywordExample example);
 
     int updateByPrimaryKeySelective(Keyword record);
 

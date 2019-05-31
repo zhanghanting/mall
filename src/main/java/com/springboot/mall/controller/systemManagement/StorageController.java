@@ -6,10 +6,15 @@ import com.springboot.mall.utils.JsonUtil;
 import com.springboot.mall.utils.MyPageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Controller
+@RequestMapping("/admin")
 public class StorageController
 {
     @Autowired
@@ -27,17 +32,15 @@ public class StorageController
     }
     @ResponseBody
     @RequestMapping("/storage/create")
-    public JsonUtil add()
+    public JsonUtil add(MultipartFile file,HttpServletRequest request)
     {
-        JsonUtil jsonUtil = new JsonUtil();
-        jsonUtil.setErrno(0);
-        jsonUtil.setErrmsg("成功");
+        JsonUtil jsonUtil = storageService.add(file,request);
         return  jsonUtil;
     }
     //更新对象的名称
     @ResponseBody
     @RequestMapping("/storage/update")
-    public JsonUtil update(Storage storage)
+    public JsonUtil update(@RequestBody Storage storage)
     {
         JsonUtil jsonUtil = new JsonUtil();
         Storage storage1 = storageService.update(storage);
@@ -49,7 +52,7 @@ public class StorageController
     //删除
     @ResponseBody
     @RequestMapping("/storage/delete")
-    public JsonUtil delete(Storage storage)
+    public JsonUtil delete(@RequestBody Storage storage)
     {
         JsonUtil jsonUtil = new JsonUtil();
         int delete = storageService.delete(storage);

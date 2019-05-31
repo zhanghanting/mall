@@ -3,20 +3,32 @@ package com.springboot.mall.domain.vo;
 public class ResponseVo
 {
     String[] roles;
-    String name;
+    String username;
     String[] perms;
     String avatar;
+    String password;
 
     public ResponseVo()
     {
     }
 
-    public ResponseVo(String[] roles,String name,String[] perms,String avatar)
+    public ResponseVo(String[] roles,String username,String[] perms,String avatar,String password)
     {
         this.roles = roles;
-        this.name = name;
+        this.username = username;
         this.perms = perms;
         this.avatar = avatar;
+        this.password = password;
+    }
+
+    public String getPassword()
+    {
+        return password;
+    }
+
+    public void setPassword(String password)
+    {
+        this.password = password;
     }
 
     public String[] getRoles()
@@ -29,14 +41,14 @@ public class ResponseVo
         this.roles = roles;
     }
 
-    public String getName()
+    public String getUsername()
     {
-        return name;
+        return username;
     }
 
-    public void setName(String name)
+    public void setUsername(String username)
     {
-        this.name = name;
+        this.username = username;
     }
 
     public String[] getPerms()

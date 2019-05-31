@@ -13,6 +13,21 @@
     <result column="deleted" jdbcType="BIT" property="deleted" />
     <result column="role_ids" jdbcType="VARCHAR" property="roleIds"/>
   </resultMap>-->
+  <!--select ResponseVo-->
+  <select id="select" resultMap="adminMap">
+    select id,
+           username,
+           avatar,
+           role_ids
+    from cskaoyan_mall_admin
+    where username = #{responseVo.username} and password = #{responseVo.password}
+  </select>
+  <!--update-->
+  <update id="update">
+    update cskaoyan_mall_admin
+  </update>
+  <!--delete-->
+  <!--add-->
   <!--根据id返回角色名-->
   <select id="find" resultType="string">
     select name
@@ -20,7 +35,7 @@
     where id = #{id}
   </select>
   <!--根据具体的字段和排序方式查找admin-->
-  <resultMap id="adminMap" type="com.springboot.mall.domain.Admin">
+  <resultMap id="adminMap" type="com.springboot.mall.domain.vo.AdminVo">
     <result column="id" property="id"/>
     <result column="username" property="username"/>
     <result column="avatar" property="avatar"/>
@@ -32,6 +47,13 @@
            avatar,
            role_ids
     from cskaoyan_mall_admin
+    <where>
+      1=1
+      <if test="name!=null">
+        and username like concat('%',#{name},'%')
+      </if>
+    </where>
     order by #{sort} #{order}
   </select>
+
 </mapper>

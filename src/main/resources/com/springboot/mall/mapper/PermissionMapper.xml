@@ -9,6 +9,12 @@
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="deleted" jdbcType="BIT" property="deleted" />
   </resultMap>
+  <!--queryPermsById-->
+  <select id="queryPermsById" resultType="string">
+    select permission
+    from cskaoyan_mall_permission
+    where role_id = #{roleId}
+  </select>
   <sql id="Example_Where_Clause">
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">
